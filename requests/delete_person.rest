@@ -1,0 +1,5 @@
+### Should succeed
+DELETE http://localhost:3001/api/persons/2
+
+### Should fail (404 error)
+DELETE http://localhost:3001/api/persons/99999

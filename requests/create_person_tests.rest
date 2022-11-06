@@ -1,0 +1,33 @@
+### Should succeed
+POST http://localhost:3001/api/persons/ HTTP/1.1
+content-type: application/json
+
+ {
+   "name": "Robin Hood",
+   "number": "555-NeedMoney"
+ }
+
+### Should fail: 403 Forbidden 'name must be unique'
+POST http://localhost:3001/api/persons/ HTTP/1.1
+content-type: application/json
+
+ {
+   "name": "Arto Hellas",
+   "number": "555-Doubled"
+ }
+
+### Should fail: 400 Bad Request 'name or number is missing'
+POST http://localhost:3001/api/persons/ HTTP/1.1
+content-type: application/json
+
+ {
+   "number": "555-NoName"
+ }
+
+### Should fail: 400 Bad Request 'name or number is missing'
+POST http://localhost:3001/api/persons/ HTTP/1.1
+content-type: application/json
+
+ {
+   "name": "Missing Number"
+ }
